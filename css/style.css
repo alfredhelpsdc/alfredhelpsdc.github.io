@@ -1,0 +1,471 @@
+:root {
+    /* Enhanced color palette with additional variables */
+    --primary: #7289DA;
+    --primary-dark: #5b6eae;
+    --primary-light: #8899dc;
+    --secondary: #2C2F33;
+    --background: #23272A;
+    --text: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --accent: #99AAB5;
+    --accent-light: #a9b8c2;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(120deg, var(--primary), var(--primary-dark));
+    
+    /* Spacing system */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    
+    /* Container widths */
+    --container-width: 1200px;
+    --container-padding: 2rem;
+}
+
+/* Modern CSS reset improvements */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Enhanced navigation */
+nav {
+    background: var(--secondary);
+    padding: var(--spacing-md) 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.nav-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--container-padding);
+}
+
+/* Add hamburger menu styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--primary-light);
+}
+
+/* Improved navigation links */
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Enhanced CTA button */
+.invite-btn {
+    background: var(--gradient);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.invite-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(114, 137, 218, 0.3);
+}
+
+header {
+    padding-top: 120px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(35, 39, 42, 0.9), rgba(35, 39, 42, 0.95)),
+                url('../images/hero-bg.jpg') center/cover;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 var(--container-padding);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Enhanced feature cards */
+.features {
+    padding: var(--spacing-xl) var(--container-padding);
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.feature-card {
+    background: var(--secondary);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    display: inline-block;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+/* Improved footer */
+footer {
+    background: var(--secondary);
+    padding: var(--spacing-xl) var(--container-padding);
+    margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.footer-section h4 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section a {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--text);
+}
+
+/* Content pages styling */
+.content-page {
+    padding: 120px 2rem 5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-page h1 {
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.content-page h2 {
+    margin: 2rem 0 1rem;
+    color: var(--primary);
+}
+
+.content-page p {
+    margin-bottom: 1rem;
+}
+
+.content-page ul {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+/* Add these styles where appropriate in your CSS file */
+
+/* Define the bouncing animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.bot-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 20px rgba(91, 110, 174, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Add a subtle shadow animation to enhance the floating effect */
+@keyframes shadow {
+    0% {
+        box-shadow: 0 0 20px rgba(91, 110, 174, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(91, 110, 174, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(91, 110, 174, 0.3);
+    }
+}
+
+.bot-avatar {
+    /* Keep existing properties */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    border: 4px solid var(--primary);
+    /* Add both animations */
+    animation: 
+        float 3s ease-in-out infinite,
+        shadow 3s ease-in-out infinite;
+}
+
+/* Enhanced mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--secondary);
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.3s ease;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        margin: 1.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .invite-btn {
+        margin-top: 1rem;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Add overlay when menu is open */
+    .nav-overlay.active {
+        display: block;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+    }
+}
+
+/* Enhanced content page styling */
+.content-page {
+    padding: 0 var(--container-padding);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.terms-section {
+    background: var(--secondary);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    margin: calc(-1 * var(--spacing-xl)) auto var(--spacing-xl);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.terms-section h2 {
+    color: var(--primary);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.terms-section h2:first-child {
+    margin-top: 0;
+}
+
+.terms-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.terms-section li {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.terms-section li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.terms-note {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Make sure header has proper spacing for content pages */
+header {
+    padding-top: 80px;
+    min-height: 50vh;
+}
+
+.content-page header {
+    background: linear-gradient(rgba(35, 39, 42, 0.95), rgba(35, 39, 42, 0.98));
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .terms-section {
+        padding: var(--spacing-lg);
+        margin: calc(-1 * var(--spacing-lg)) auto var(--spacing-lg);
+    }
+    
+    .content-page {
+        padding: 0 var(--spacing-md);
+    }
+}
