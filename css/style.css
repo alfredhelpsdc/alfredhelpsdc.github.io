@@ -59,7 +59,7 @@ a:hover {
   padding: 0 2rem;
 }
 
-/* Header Styles */
+/* Header Style */
 header {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   padding: 140px 0 100px;
